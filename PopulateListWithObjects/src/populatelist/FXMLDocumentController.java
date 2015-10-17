@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
+package populatelist;
 
 import java.net.URL;
 import java.util.List;
@@ -21,6 +21,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import jpa.controller.PersonJpaController;
 import model.Person;
 
 /**
