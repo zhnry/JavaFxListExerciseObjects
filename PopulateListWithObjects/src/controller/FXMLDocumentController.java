@@ -21,7 +21,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import populatelist.Person;
+import model.Person;
 
 /**
  *

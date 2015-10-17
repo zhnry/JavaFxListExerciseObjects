@@ -13,7 +13,7 @@ import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import populatelist.Person;
+import model.Person;
 import populatelist.exceptions.NonexistentEntityException;
 import populatelist.exceptions.PreexistingEntityException;
 
