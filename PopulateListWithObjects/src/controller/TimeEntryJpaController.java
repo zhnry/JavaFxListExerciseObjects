@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package populatelist;
+package controller;
 
 import java.io.Serializable;
 import javax.persistence.Query;
@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import populatelist.TimeEntry;
 import populatelist.exceptions.IllegalOrphanException;
 import populatelist.exceptions.NonexistentEntityException;
 import populatelist.exceptions.PreexistingEntityException;

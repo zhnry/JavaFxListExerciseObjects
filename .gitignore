@@ -14,3 +14,5 @@ hs_err_pid*
 /PopulateList/build/
 /PopulateList/dist/
 !/PopulateList/jars/sqljdbc42.jar
+/PopulateListWithObjects/dist/
+/PopulateListWithObjects/build/
