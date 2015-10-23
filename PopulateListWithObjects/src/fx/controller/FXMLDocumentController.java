@@ -23,6 +23,9 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import jpa.controller.PersonJpaController;
 import model.Person;
+import javafx.scene.control.ListCell;
+import javafx.util.Callback;
+
 
 /**
  *
@@ -53,7 +56,23 @@ public class FXMLDocumentController implements Initializable {
 
   @Override
   public void initialize(URL url, ResourceBundle rb) {
-    // TODO
+      lvPeople.setCellFactory(new Callback<ListView<Person>, ListCell<Person>>(){
+  @Override
+  public ListCell<Person> call(ListView<Person> param) {
+
+    ListCell<Person> cell = new ListCell<Person>() {
+      @Override
+      public void updateItem(Person person, boolean empty) {
+        super.updateItem(person, empty);
+        if (person != null) {
+          this.setText(person.getFirstName() + " " + person.getLastName());
+        }
+      }
+    };
+    return cell;
+  }
+});
+
     SyncPeopleListView();
   }
 
