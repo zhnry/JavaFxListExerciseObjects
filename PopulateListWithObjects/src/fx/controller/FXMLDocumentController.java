@@ -35,7 +35,7 @@ public class FXMLDocumentController implements Initializable {
   @FXML
   private Button button;
   @FXML
-  private ListView<String> lvPeople;
+  private ListView<Person> lvPeople;
   @FXML
   private TextField tfFirstName;
   @FXML
@@ -60,7 +60,7 @@ public class FXMLDocumentController implements Initializable {
   public void SyncPeopleListView() {
 
     // Items inside the list
-    ObservableList<String> items = lvPeople.getItems();
+    ObservableList<Person> items = lvPeople.getItems();
 
     // Clear out the list
     items.clear();
@@ -72,7 +72,7 @@ public class FXMLDocumentController implements Initializable {
 
     // Add each person to the list
     for (Person p : people) {
-      lvPeople.getItems().add(p.getId() + ", " + p.getFirstName() + " " + p.getLastName());
+lvPeople.getItems().add(p);
     }
   }
 
@@ -96,18 +96,17 @@ public class FXMLDocumentController implements Initializable {
 
   @FXML
   private void handleBtnDeletePersonClicked(MouseEvent event) {
-    String selectedText = lvPeople.getSelectionModel().getSelectedItem();
-    System.out.println("Delete " + selectedText);
+    Person selectedPerson = lvPeople.getSelectionModel().getSelectedItem();
+    System.out.println("Delete " + selectedPerson.toString());
 
-    String idString = selectedText.split(",")[0];
-    System.out.println("Id: " + idString);
+
+    System.out.println("Id: " + selectedPerson.getId());
 
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("PopulateListPU");
     PersonJpaController jpaPerson = new PersonJpaController(emf);
 
     try {
-      int id = Integer.parseInt(idString);
-      jpaPerson.destroy(id);
+      jpaPerson.destroy(selectedPerson.getId());
     } catch (Exception ex) {
       Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
     }
